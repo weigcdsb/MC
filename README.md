@@ -1,2 +1,5 @@
 # MC
- selft study for "Monte Carlo Statistical Method, 2nd edition"
+Text: Christian P. Robert, George Casella, ***Monte Carlo Statistical Methods*** (2004)
+
+website: https://www.ceremade.dauphine.fr/~xian/books.html#MCSM2
+
