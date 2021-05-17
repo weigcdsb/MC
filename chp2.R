@@ -2,7 +2,6 @@
 ##### chp2: random variable generation #####
 ############################################
 
-
 ############################################
 #### EX 2.11: Beta generation (Johnk's Thm)
 set.seed(1)
@@ -55,12 +54,7 @@ plot(val,valf,type="l",xlab="x",ylab="density",lwd=2)
 polygon(c(val,rev(val)),c(valf,0*valf),col="cyan")
 points(ys,us,cex=.4,pch=20)
 
-
-
-
-
-
-
+############################################
 
 
 
