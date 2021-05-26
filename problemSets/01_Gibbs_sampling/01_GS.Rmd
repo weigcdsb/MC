@@ -265,8 +265,6 @@ cat('sample precision:', 1/temp.var)
 
 From the above analysis, the 95% HPD for the posterior mean is [98.122, 98.370] and 95% HPD for the posterior variance is [0.412, 0.676]. Since 98.6 is not in 95% HPD of the mean, the normal body temperature is not 98.6.
 
-**Question**: is this inference appropriate? How to make use of the posterior distribution of variance?
-
 
 
 
