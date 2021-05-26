@@ -50,7 +50,7 @@ image(BVNs.kde, main = 'Bivariate Normal',
 contour(BVNs.kde, add = T)
 ```
 
-Then 5000 Gibbs samples are drawn, with the initial value $\boldsymbol{x}_0=\boldsymbol{\mu}$. The code for Gibbs sampling are as follows. The contours of kernel density is overlaid by the samples from the Gibbs sampler. 
+Then 5000 Gibbs samples are drawn, with the initial value $\boldsymbol{x}^{(1)}=\boldsymbol{\mu}$. The code for Gibbs sampling are as follows. The contours of kernel density is overlaid by the samples from the Gibbs sampler. 
 ```{r}
 GS_BVN <- function(mu, Sig, nGS, x0){
   X <- matrix(NA, nrow = nGS, ncol = 2)
@@ -152,7 +152,8 @@ To help with interpretation, rewrite $\alpha_0= \frac{\nu_0}{2}$ and $\beta_0 = 
 $$
 p(\tilde{\sigma}^2|\theta, \boldsymbol{x}) \propto Gamma( \frac{\nu_0+n}{2}, \frac{\nu_0\sigma^2_0+(n-1)s^2 + n(\bar{\boldsymbol{x}}-\theta)^2}{2})
 $$
-OK, let's begin to do the Gibbs sampler! Set the prior parameters as $\mu_0 = \bar{\boldsymbol{x}}, \tau^2_0=1, \nu_0=1, \sigma^2_0=0.01$. Draw 5000 samples, with initial values be $\theta_0=\bar{\boldsymbol{x}}$ and $\tilde{\sigma}^2=1/s^2$. The code are as follows. In the code, I further denote $\phi=(\theta, \tilde{\sigma}^2)'$
+OK, let's begin to do the Gibbs sampling! 
+Set the prior parameters as $\mu_0 = \bar{\boldsymbol{x}}, \tau^2_0=1, \nu_0=1, \sigma^2_0=0.01$. Draw 5000 samples, with initial values be $\theta^{(1)}=\bar{\boldsymbol{x}}$ and $\tilde{\sigma}^{2(1)}=1/s^2$. The code are as follows. In the code, I further denote $\phi=(\theta, \tilde{\sigma}^2)'$
 
 ```{r}
 nGS <- 5000
