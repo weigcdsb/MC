@@ -128,7 +128,7 @@ cat('sample mean:', temp.mean, '\n')
 cat('sample variance:', temp.var)
 ```
 
-## 2.1 Gibbs Sampler
+## 2.2 Gibbs Sampler
 
 Denote $X_i \stackrel{i.i.d.}{\sim} N(\theta, \sigma^2)$, and $\boldsymbol{X} = (x_1,...,x_n)'$. Here, we use independent priors for $\theta$ and $\sigma^2$ as follows:
 $$
@@ -242,6 +242,17 @@ cat('posterior mean:', mean(PHI[, 2]), '\n')
 cat('95% HPD: [', invSig2.hdi[1], ',', invSig2.hdi[2], ']', '\n')
 cat('95% symmetric credible interval: [', invSig2.quantile[1], ',', invSig2.quantile[2], ']')
 ```
+Further, the values for variance $\sigma^2$:
+```{r, echo = F}
+sig2GS <- 1/PHI[, 2]
+sig2.hdi <- hdi(sig2GS, credMass = 0.95)
+sig2.quantile <- quantile(sig2GS, c(0.025, 0.975))
+
+cat('posterior mean:', mean(sig2GS), '\n')
+cat('95% HPD: [', sig2.hdi[1], ',', sig2.hdi[2], ']', '\n')
+cat('95% symmetric credible interval: [', sig2.quantile[1], ',', sig2.quantile[2], ']')
+```
+
 The HPD and symmetric credible intervals are close in both parameters.
 
 Also, notice that the observation mean & precision are:
@@ -249,6 +260,24 @@ Also, notice that the observation mean & precision are:
 cat('sample mean:', temp.mean, '\n')
 cat('sample precision:', 1/temp.var)
 ```
+
+## 2.3 Conclusion
+
+From the above analysis, the 95% HPD for the posterior mean is [98.122, 98.370] and 95% HPD for the posterior variance is [0.412, 0.676]. Since 98.6 is not in 95% HPD of the mean, the normal body temperature is not 98.6.
+
+**Question**: is this inference appropriate? How to make use of the posterior distribution of variance?
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
