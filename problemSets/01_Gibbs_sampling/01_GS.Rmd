@@ -152,15 +152,16 @@ To help with interpretation, rewrite $\alpha_0= \frac{\nu_0}{2}$ and $\beta_0 = 
 $$
 p(\tilde{\sigma}^2|\theta, \boldsymbol{x}) \propto Gamma( \frac{\nu_0+n}{2}, \frac{\nu_0\sigma^2_0+(n-1)s^2 + n(\bar{\boldsymbol{x}}-\theta)^2}{2})
 $$
-OK, let's begin to do the Gibbs sampling! 
-Set the prior parameters as $\mu_0 = \bar{\boldsymbol{x}}, \tau^2_0=1, \nu_0=1, \sigma^2_0=0.01$. Draw 5000 samples, with initial values be $\theta^{(1)}=\bar{\boldsymbol{x}}$ and $\tilde{\sigma}^{2(1)}=1/s^2$. The code are as follows. In the code, I further denote $\phi=(\theta, \tilde{\sigma}^2)'$
+OK, let's begin to do the Gibbs sampling!
+
+According to https://www.webmd.com/first-aid/normal-body-temperature, the normal body temperature of the adult ranging from 97F to 99F, I set the prior parameters as $\mu_0 = 98, \tau^2_0=1, \nu_0=1, \sigma^2_0=0.01$. Draw 5000 samples, with initial values be $\theta^{(1)}=\bar{\boldsymbol{x}}$ and $\tilde{\sigma}^{2(1)}=1/s^2$. The code are as follows. In the code, I further denote $\phi=(\theta, \tilde{\sigma}^2)'$
 
 ```{r}
 nGS <- 5000
 PHI <- matrix(NA, nrow = nGS, ncol = 2)
 
 ## prior
-mu0 <- temp.mean
+mu0 <- 98
 tau20 <- 1
 nu0 <- 1
 sig20 <- 0.01
@@ -264,7 +265,7 @@ cat('sample precision:', 1/temp.var)
 
 ## 2.3 Conclusion
 
-From the above analysis, the 95% HPD for the posterior mean is [98.122, 98.370] and 95% HPD for the posterior variance is [0.412, 0.676]. Since 98.6 is not in 95% HPD of the mean, the normal body temperature is not 98.6.
+From the above analysis, the 95% HPD for the posterior mean is [98.121, 98.369] and 95% HPD for the posterior variance is [0.412, 0.677]. Since 98.6 is not in 95% HPD of the mean, the normal body temperature is not 98.6.
 
 
 
