@@ -137,7 +137,7 @@ $$
 \tilde{\sigma}^2=1/\sigma^2 &\sim Gamma(\alpha_0, \beta_0)
 \end{aligned}
 $$
-Here, $\tilde{\sigma}^2=1/\sigma^2$ is the "precision". Therefore, we can get the full conditional distributions for $\theta$ and $\tilde{\sigma}^2$:
+Here, $\tilde{\sigma}^2=1/\sigma^2$ is the "precision", $\alpha_0$ is the shape parameter, and $\beta_0$ is the rate parameter. Therefore, we can get the full conditional distributions for $\theta$ and $\tilde{\sigma}^2$:
 $$
 \begin{aligned}
 p(\theta|\tilde{\sigma}^2, \boldsymbol{x}) &\propto p(\boldsymbol{x}|\theta, \tilde{\sigma}^2)p(\theta|\tilde{\sigma}^2)p(\tilde{\sigma}^2)\\
@@ -154,7 +154,7 @@ p(\tilde{\sigma}^2|\theta, \boldsymbol{x}) \propto Gamma( \frac{\nu_0+n}{2}, \fr
 $$
 OK, let's begin to do the Gibbs sampling!
 
-According to https://www.webmd.com/first-aid/normal-body-temperature, the normal body temperature of the adult ranging from 97F to 99F, I set the prior parameters as $\mu_0 = 98, \tau^2_0=1, \nu_0=4, \sigma^2_0=0.5$. Draw 5000 samples, with initial values be $\theta^{(1)}=\bar{\boldsymbol{x}}$ and $\tilde{\sigma}^{2(1)}=1/s^2$. The code are as follows. In the code, I further denote $\phi=(\theta, \tilde{\sigma}^2)'$
+According to https://www.webmd.com/first-aid/normal-body-temperature, the normal body temperature of an adult ranges from 97F to 99F, I set the prior parameters as $\mu_0 = 98, \tau^2_0=1, \nu_0=4, \sigma^2_0=0.5$. Draw 5000 samples, with initial values be $\theta^{(1)}=\bar{\boldsymbol{x}}$ and $\tilde{\sigma}^{2(1)}=1/s^2$. The code are as follows. In the code, I further denote $\phi=(\theta, \tilde{\sigma}^2)'$
 
 ```{r}
 nGS <- 5000
